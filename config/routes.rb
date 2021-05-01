@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   scope module: 'user' do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    resources :inks
   end
-
-  resources :inks
   
 end
