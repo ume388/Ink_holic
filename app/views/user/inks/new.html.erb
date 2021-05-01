@@ -1,0 +1,54 @@
+<div>
+  <div>
+    <h1>New Ink</h1>
+    <%= form_with model: @ink, local:true do |f| %>
+      <h4>インク画像</h4>
+      <%= f.attachment_field :ink_image %>
+      
+      <h4>インク名</h4>
+      <%= f.text_field :ink_name %>
+      
+      <h4>色の分類</h4>
+      <%= f.radio_button :color, "黒・灰色系" %>
+      <%= f.label :黒・灰色系 %>
+      <%= f.radio_button :color, "青・水色系" %>
+      <%= f.label :青・水色系 %>
+      <%= f.radio_button :color, "緑系" %>
+      <%= f.label :緑系 %>
+      <%= f.radio_button :color, "黄・オレンジ系" %>
+      <%= f.label :黄・オレンジ系 %><br>
+      <%= f.radio_button :color, "赤・ピンク系" %>
+      <%= f.label :赤・ピンク系 %>
+      <%= f.radio_button :color, "紫系" %>
+      <%= f.label :紫系 %>
+      <%= f.radio_button :color, "茶色系" %>
+      <%= f.label :茶色系 %>
+      <%= f.radio_button :color, "その他" %>
+      <%= f.label :その他 %>
+      
+      <h4>メモ・紹介</h4>
+      <%= f.text_area :ink_introduction %>
+      
+      <h4>値段</h4>
+      <%= f.text_field :price %>
+      
+      <h4>内容量</h4>
+      <%= f.text_field :milliliter %>
+      
+      <h4>評価</h4>
+      <%= f.hidden_field :evaluate %>
+      
+      <script>
+        $('#evaluate_stars').raty({
+          starOn: "<%= asset_path('star-on.png') %>,
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'ink[evaluation]', //登録するモデル名とカラム名を記述
+          half: true,
+        });
+      </script>
+      
+      <%= f.submit '登録する' %>
+    <% end %>
+  </div>
+</div>
