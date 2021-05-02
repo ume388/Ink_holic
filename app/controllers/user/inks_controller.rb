@@ -1,6 +1,7 @@
 class User::InksController < ApplicationController
   
   def index
+    @inks = Ink.all
   end
   
   def new
