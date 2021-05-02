@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :inks do
       resources :favorites
     end
+    resources :users
   end
   
 end

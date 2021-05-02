@@ -1,0 +1,46 @@
+<div>
+  <div>
+    <h1>マイページ</h1>
+    
+    <h3>手持ちインクの割合</h3>
+    
+    <h3>インク一覧</h3>
+    <table>
+      <% @inks.each do |ink| %>
+        <tr>
+          <td>
+            <%= link_to ink_path(ink.id) do %>
+              <%= attachment_image_tag ink, :ink_image, :fill, 30, 30 %>
+            <% end %>
+          </td>
+          <td>
+            <%= ink.ink_name %>
+          </td>
+          <td>
+            <%= ink.color %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    
+    <h3>いい色！したインク</h3>
+    <table>
+      <% @favorite_inks.each do |favorite| %>
+        <tr>
+          <td>
+            <%= link_to ink_path(favorite.ink_id) do %>
+              <%= attachment_image_tag favorite.ink, :ink_image, :fill, 30, 30 %>
+            <% end %>
+          </td>
+          <td>
+            <%= favorite.ink.ink_name %>
+          </td>
+          <td>
+            <%= favorite.ink.color %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    
+  </div>
+</div>
