@@ -1,0 +1,23 @@
+<div>
+  <div>
+    <h1>Inks</h1>
+    
+    <% @inks.each do |ink| %>
+    <div>
+      <%= attachment_image_tag ink, :ink_image, :fill, 50, 50 %>
+      <p>
+        インク名:
+        <%= ink.ink_name %>
+      </p>
+      <p>
+        色の分類:
+        <%= ink.color %>
+      </p>
+      <p>
+        ユーザー名:
+        <%= ink.user.user_name %>
+      </p>
+    </div>
+    <% end %>
+  </div>
+</div>
