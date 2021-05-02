@@ -1,0 +1,25 @@
+<div>
+  <div>
+    <h1>Inks</h1>
+    
+    <% @inks.each do |ink| %>
+    <div>
+      <%= link_to ink_path(ink.id) do %>
+        <%= attachment_image_tag ink, :ink_image, :fill, 50, 50 %>
+      <% end %>
+      <p>
+        インク名:
+        <%= ink.ink_name %>
+      </p>
+      <p>
+        色の分類:
+        <%= ink.color %>
+      </p>
+      <p>
+        ユーザー名:
+        <%= ink.user.user_name %>
+      </p>
+    </div>
+    <% end %>
+  </div>
+</div>

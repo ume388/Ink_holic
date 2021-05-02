@@ -12,6 +12,12 @@
   <body>
     <% if user_signed_in? %>
       <li>
+        <%= link_to "New Ink", new_ink_path %>
+      </li>
+      <li>
+        <%= link_to "Inks", inks_path %>
+      </li>
+      <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
@@ -20,6 +26,9 @@
       </li>
       <li>
         <%= link_to "ログイン", new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to "Inks", inks_path %>
       </li>
     <% end %>
     

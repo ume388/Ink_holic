@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <h1>インク詳細</h1>
+    
+      <%= attachment_image_tag @ink, :ink_image, :fill, 300, 300 %>
+      <p>
+        インク名:<%= @ink.ink_name %>
+      </p>
+      <p>
+        評価
+      </p>
+      <p>
+        色の分類:<%= @ink.color %>
+      </p>
+      <p>
+        メモ・紹介:<%= @ink.ink_introduction %>
+      </p>
+      <p>
+        値段:￥<%= @ink.price %>
+      </p>
+      <p>
+        内容量:<%= @ink.milliliter %>ml
+      </p>
+      <p>
+        1mlあたり:￥<%= (@ink.price / @ink.milliliter) %>／ml
+      </p>
+      <p>
+        ユーザー名:<%= @ink.user.user_name %>
+      </p>
+      <p>
+        日付:<%= @ink.created_at.strftime('%Y/%m/%d') %>
+      </p>
+    <% if @ink.user_id == current_user.id %>
+      <p>
+        <%= link_to "編集", edit_ink_path(@ink) %>
+      </p>
+      <p>
+        <%= link_to "削除", ink_path(@ink), method: :delete, data: {confirm: '本当に削除しますか？'} %>
+      </p>
+    <% end %>
+  </div>
+</div>

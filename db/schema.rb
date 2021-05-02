@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_200308) do
+ActiveRecord::Schema.define(version: 2021_05_01_205008) do
+
+  create_table "inks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "ink_name", null: false
+    t.string "ink_image_id", null: false
+    t.text "ink_introduction"
+    t.integer "price"
+    t.integer "milliliter"
+    t.float "evaluation"
+    t.integer "color", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
