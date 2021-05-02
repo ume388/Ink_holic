@@ -4,7 +4,9 @@
     
     <% @inks.each do |ink| %>
     <div>
-      <%= attachment_image_tag ink, :ink_image, :fill, 50, 50 %>
+      <%= link_to ink_path(ink.id) do %>
+        <%= attachment_image_tag ink, :ink_image, :fill, 50, 50 %>
+      <% end %>
       <p>
         インク名:
         <%= ink.ink_name %>

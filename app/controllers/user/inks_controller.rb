@@ -16,6 +16,7 @@ class User::InksController < ApplicationController
   end
   
   def show
+    @ink= Ink.find(params[:id])
   end
   
   def edit
