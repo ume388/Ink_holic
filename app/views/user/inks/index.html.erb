@@ -12,13 +12,13 @@
     <h3>検索結果</h3>
     <% @searched_inks.each do |ink| %>
       <%= attachment_image_tag ink, :ink_image, :fill, 50, 50 %>
-      <%= ink.ink_name %>
+      <%= link_to ink.ink_name, ink_path(ink) %>
     <% end %>
     <hr>
 
     <% @inks.each do |ink| %>
     <div>
-      <%= link_to ink_path(ink.id) do %>
+      <%= link_to ink_path(ink) do %>
         <%= attachment_image_tag ink, :ink_image, :fill, 50, 50 %>
       <% end %>
       <p>
