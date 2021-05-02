@@ -16,16 +16,31 @@ class User::InksController < ApplicationController
   end
   
   def show
-    @ink= Ink.find(params[:id])
+    @ink = Ink.find(params[:id])
   end
   
   def edit
+    @ink = Ink.find(params[:id])
+    if @ink.user == current_user
+      render 'edit'
+    else
+      redirect_to inks_path
+    end
   end
   
   def update
+    @ink = Ink.find(params[:id])
+    if @ink.update(ink_params)
+      redirect_to ink_path(@ink)
+    else
+      render 'edit'
+    end
   end
   
-  def destory
+  def destroy
+    @ink = Ink.find(params[:id])
+    @ink.destroy
+    redirect_to inks_path
   end
   
   private
