@@ -37,7 +37,16 @@
       <%= f.text_field :milliliter %>
       
       <h4>評価</h4>
-      <%= f.hidden_field :evaluate %>
+      <div id="evaluate_stars" data-score="<%= @ink.evaluation %>"></div>
+        <script>
+          $('#evaluate_stars').raty({
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            scoreName: 'ink[evaluation]', //登録するモデル名とカラム名を記述
+            half: true,
+          });
+        </script>
       
       <%= f.submit '編集する' %>
     <% end %>
