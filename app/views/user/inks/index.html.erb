@@ -1,7 +1,21 @@
 <div>
   <div>
     <h1>Inks</h1>
-    
+
+    <%= search_form_for @q do |f| %>
+      <%= f.label :ink_name %>
+      <%= f.search_field :ink_name_cont %>
+
+      <%= f.submit %>
+    <% end %>
+
+    <h3>検索結果</h3>
+    <% @searched_inks.each do |ink| %>
+      <%= attachment_image_tag ink, :ink_image, :fill, 50, 50 %>
+      <%= ink.ink_name %>
+    <% end %>
+    <hr>
+
     <% @inks.each do |ink| %>
     <div>
       <%= link_to ink_path(ink.id) do %>
