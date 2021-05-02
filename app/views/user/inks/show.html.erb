@@ -30,6 +30,20 @@
       <p>
         日付:<%= @ink.created_at.strftime('%Y/%m/%d') %>
       </p>
+    <% if @ink.favorited_by?(current_user) %>
+      <p>
+        <%= link_to ink_favorite_path(@ink), method: :delete do %>
+          ♥<%= @ink.favorites.count %> いい色！
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to ink_favorites_path(@ink), method: :post do %>
+          ♡<%= @ink.favorites.count %> いい色！
+        <% end %>
+      </p>
+    <% end %>
+    
     <% if @ink.user_id == current_user.id %>
       <p>
         <%= link_to "編集", edit_ink_path(@ink) %>
