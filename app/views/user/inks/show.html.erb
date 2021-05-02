@@ -6,9 +6,17 @@
       <p>
         インク名:<%= @ink.ink_name %>
       </p>
-      <p>
-        評価
-      </p>
+      <p>評価</p>
+        <div class="ink_evaluation" data-score="<%= @ink.evaluation %>"></div>
+        <script>
+          $('.ink_evaluation').raty({
+            readOnly: true,
+            score: function() {
+            return $(this).attr('data-score');
+            },
+            path: '/assets/'
+          });
+        </script>
       <p>
         色の分類:<%= @ink.color %>
       </p>
