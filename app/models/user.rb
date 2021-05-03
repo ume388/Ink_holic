@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   attachment :user_image
   
+  def available_inks(color)
+    inks.where(color: color).count.to_f / inks.count.to_f * 100
+  end
+  
 end
