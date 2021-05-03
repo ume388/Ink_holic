@@ -3,6 +3,37 @@
     <h1>マイページ</h1>
     
     <h3>手持ちインクの割合</h3>
+    <canvas id="myPieChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+    <script>
+      var ctx = document.getElementById("myPieChart");
+      var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ["黒・灰色系", "青・水色系", "緑系", "黄・オレンジ系", "赤・ピンク系", "紫系", "茶色系", "その他"],
+          datasets: [{
+            backgroundColor: [
+              "#778899",
+              "#1e90ff",
+              "#66cdaa",
+              "#f0e68c",
+              "#c71585",
+              "#9370db",
+              "#bc8f8f",
+              "#e6e6fa"
+            ],
+            data: [gon.grey, gon.blue, gon.green, gon.yellow, gon.red, gon.purple, gon.brown, gon.other]
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: '手持ちインクの割合'
+          }
+        }
+      });
+    </script>
     
     <h3>インク一覧</h3>
     <table>
@@ -41,6 +72,5 @@
         </tr>
       <% end %>
     </table>
-    
   </div>
 </div>
