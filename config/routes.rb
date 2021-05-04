@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :favorites
     end
     resources :users
+    get 'unsubscribe' => 'users#unsubscribe'
+    post 'withdraw' => 'users#withdraw'
   end
   
 end
