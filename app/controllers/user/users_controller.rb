@@ -28,6 +28,18 @@ class User::UsersController < ApplicationController
     end
   end
   
+  def unsubscribe
+  end
+  
+  def withdraw
+    @user = current_user
+    
+    if @user.update(is_deleted: true)
+      reset_session
+      redirect_to root_path
+    end
+  end
+  
   private
   
   def user_params
