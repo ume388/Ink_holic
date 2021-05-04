@@ -1,6 +1,20 @@
 <div>
   <div>
-    <h1>ユーザー情報</h1>
+    <h1>ユーザー情報編集</h1>
     
+    <%= form_with model:@user, local:true do |f| %>
+      <div>プロフィール画像</div>
+      <%= f.attachment_field :user_image %>
+      
+      <div>ユーザー名</div>
+      <%= f.text_field :user_name %>
+      
+      <div>メールアドレス</div>
+      <%= f.text_field :email %>
+      
+      <div>
+        <%= f.submit "編集内容を保存" %>
+      </div>
+    <% end %>
   </div>
 </div>
