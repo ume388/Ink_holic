@@ -16,7 +16,7 @@
       <tbody>
         <% @inks.each do |ink| %>
           <tr>
-            <td><%= attachment_image_tag ink, :ink_image, :fill, 30, 30, fallback: "no_image.jpg" %></td>
+            <td><%= link_to (attachment_image_tag ink, :ink_image, :fill, 30, 30, fallback: "no_image.jpg"), admins_ink_path(ink.id) %></td>
             <td><%= ink.ink_name %></td>
             <td><%= ink.ink_introduction %></td>
             <td><%= ink.user.user_name %></td>
