@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-
+  
+  namespace :admins do
+    resources :inks
+  end
+  
   scope module: 'user' do
     root to: 'homes#top'
     get 'about' => 'homes#about'
