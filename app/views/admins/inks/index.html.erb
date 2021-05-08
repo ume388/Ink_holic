@@ -1,0 +1,29 @@
+<div>
+  <div>
+    <h1>管理者用インク一覧画面</h1>
+    
+    <table>
+      <thead>
+          <tr>
+            <th>インク画像</th>
+            <th>インク名</th>
+            <th>紹介文</th>
+            <th>ユーザー名</th>
+            <th>投稿日</th>
+          </tr>
+      </thead>
+    
+      <tbody>
+        <% @inks.each do |ink| %>
+          <tr>
+            <td><%= link_to (attachment_image_tag ink, :ink_image, :fill, 30, 30, fallback: "no_image.jpg"), admins_ink_path(ink.id) %></td>
+            <td><%= ink.ink_name %></td>
+            <td><%= ink.ink_introduction %></td>
+            <td><%= ink.user.user_name %></td>
+            <td><%= ink.created_at.strftime("%Y-%m-%d") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

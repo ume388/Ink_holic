@@ -1,0 +1,44 @@
+<div>
+  <div>
+    <h1><%= @ink.ink_name %>の詳細</h1>
+    <div>
+      <%= attachment_image_tag @ink, :ink_image, :fill, 300, 300 %>
+      <p>評価</p>
+        <div class="ink_evaluation" data-score="<%= @ink.evaluation %>"></div>
+        <script>
+          $('.ink_evaluation').raty({
+            readOnly: true,
+            score: function() {
+            return $(this).attr('data-score');
+            },
+            path: '/assets/'
+          });
+        </script>
+      <p>
+        色の分類:<%= @ink.color %>
+      </p>
+      <p>
+        メモ・紹介:<%= @ink.ink_introduction %>
+      </p>
+      <p>
+        値段:￥<%= @ink.price %>
+      </p>
+      <p>
+        内容量:<%= @ink.milliliter %>ml
+      </p>
+      <p>
+        1mlあたり:￥<%= (@ink.price / @ink.milliliter) %>／ml
+      </p>
+      <p>
+        ユーザー名:<%= @ink.user.user_name %>
+      </p>
+      <p>
+        日付:<%= @ink.created_at.strftime('%Y/%m/%d/%R') %>
+      </p>
+    </div>
+    
+    <div>
+      <%= link_to "編集する", edit_admins_ink_path(@ink) %>
+    </div>
+  </div>
+</div>
