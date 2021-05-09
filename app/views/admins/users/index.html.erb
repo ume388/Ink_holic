@@ -14,8 +14,12 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.user_name %></td>
-            <td><%= user.email %></td>
+            <td>
+              <%= link_to user.user_name, admins_user_path(user) %>
+            </td>
+            <td>
+              <%= user.email %>
+            </td>
             <td>
               <% if user.is_deleted == false %>
                 有効
