@@ -25,6 +25,9 @@
         <%= link_to "Inks", inks_path %>
       </li>
       <li>
+        <%= link_to "通報", new_report_path %>
+      </li>
+      <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
@@ -36,6 +39,9 @@
       </li>
       <li>
         <%= link_to "Inks", inks_path %>
+      </li>
+      <li>
+        <%= link_to "通報", new_report_path %>
       </li>
     <% end %>
     
