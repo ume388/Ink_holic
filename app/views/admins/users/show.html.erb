@@ -2,6 +2,14 @@
   <div>
     <h1><%= @user.user_name %>さんの詳細</h1>
     
+    <div>
+      <%= attachment_image_tag @user, :user_image, :fill, 10, 10, fallback: "no_image.jpg" %>
+    </div>
+    
+    <div>
+      <%= link_to "編集する", edit_admins_user_path(@user) %>
+    </div>
+    
     <table>
       <tbody>
         <tr>
