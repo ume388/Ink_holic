@@ -1,0 +1,33 @@
+<div>
+  <div>
+    <h1>連絡一覧</h1>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>投稿日</th>
+          <th>ユーザー名</th>
+          <th>解決ステータス</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @reports.each do |report| %>
+          <tr>
+            <td><%= report.report_title %></td>
+            <td><%= report.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= report.user.user_name %></td>
+            <td>
+              <% if report.is_comfortable == false %>
+                未解決
+              <% else %>
+                解決済み
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

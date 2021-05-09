@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :inks
     resources :users
+    resources :reports
   end
   
   scope module: 'user' do
