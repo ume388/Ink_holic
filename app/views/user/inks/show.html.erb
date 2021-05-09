@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>インク詳細</h1>
-    
+
       <%= attachment_image_tag @ink, :ink_image, :fill, 300, 300 %>
       <p>
         インク名:<%= @ink.ink_name %>
@@ -38,19 +38,10 @@
       <p>
         日付:<%= @ink.created_at.strftime('%Y/%m/%d') %>
       </p>
-    <% if @ink.favorited_by?(current_user) %>
-      <p>
-        <%= link_to ink_favorite_path(@ink), method: :delete do %>
-          ♥<%= @ink.favorites.count %> いい色！
-        <% end %>
-      </p>
-    <% else %>
-      <p>
-        <%= link_to ink_favorites_path(@ink), method: :post do %>
-          ♡<%= @ink.favorites.count %> いい色！
-        <% end %>
-      </p>
-    <% end %>
+    
+      <div id="favorite_buttons_<%= @ink.id %>">
+        <%= render partial: 'user/favorites/favorite', locals: {ink: @ink, favorite: @favorite} %>
+      </div>
     
     <% if @ink.user_id == current_user.id %>
       <p>
