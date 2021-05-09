@@ -19,6 +19,7 @@ class User::InksController < ApplicationController
   
   def show
     @ink = Ink.find(params[:id])
+    @favorite = @ink.favorites.find_by(user_id: current_user.id)
   end
   
   def edit
