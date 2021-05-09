@@ -1,0 +1,13 @@
+<% if ink.favorited_by?(current_user) %>
+  <p>
+    <%= link_to ink_favorite_path(ink, favorite), method: :delete, remote: true do %>
+      ♥<%= ink.favorites.count %> いい色！
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to ink_favorites_path(ink), method: :post, remote: true do %>
+      ♡<%= ink.favorites.count %> いい色！
+    <% end %>
+  </p>
+<% end %>
