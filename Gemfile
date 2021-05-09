@@ -71,3 +71,6 @@ gem 'jquery-rails'
 gem 'ransack'
 
 gem 'gon'
+
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

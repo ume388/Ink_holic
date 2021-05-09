@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <h1>カレンダー</h1>
+    <div>
+      <!--%= link_to "予定の登録", new_event_path %-->
+    </div>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
+    <div id="calendar"></div>
+      <script type="text/javascript">
+        $(function() {
+        // 初期処理
+          $('#calendar').fullCalendar({
+        // ここに各種オプションを書いていくと設定が適用されていく
+            buttonText: {
+              prev: "<",
+              next: ">"
+            }
+          })
+        });
+      </script>
+  </div>
+</div>
