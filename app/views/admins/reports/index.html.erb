@@ -15,7 +15,7 @@
       <tbody>
         <% @reports.each do |report| %>
           <tr>
-            <td><%= report.report_title %></td>
+            <td><%= link_to report.report_title, admins_report_path(report) %></td>
             <td><%= report.created_at.strftime("%Y/%m/%d") %></td>
             <td><%= report.user.user_name %></td>
             <td>
