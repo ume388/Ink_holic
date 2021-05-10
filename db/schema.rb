@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_204519) do
+ActiveRecord::Schema.define(version: 2021_05_09_193143) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2021_05_04_204519) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -40,6 +48,15 @@ ActiveRecord::Schema.define(version: 2021_05_04_204519) do
     t.integer "milliliter"
     t.float "evaluation"
     t.integer "color", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "report_title", null: false
+    t.text "sentence", null: false
+    t.boolean "is_comfortable", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

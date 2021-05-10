@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <h1>解決度ステータス編集</h1>
+    
+    <div>
+      <%= form_with model:@report, url: admins_report_path do |f| %>
+        <div>解決ステータス</div>
+        <%= f.select :is_comfortable, [["未解決", "false"], ["解決済み", "true"]] %>
+      
+        <div>
+        <%= f.submit "更新" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
