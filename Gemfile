@@ -76,3 +76,5 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
 gem 'bxslider-rails'
+
+gem 'bootstrap', '~> 4.5'
