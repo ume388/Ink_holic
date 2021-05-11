@@ -74,3 +74,5 @@ gem 'gon'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'bxslider-rails'
