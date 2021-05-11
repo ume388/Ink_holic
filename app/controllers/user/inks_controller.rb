@@ -1,4 +1,5 @@
 class User::InksController < ApplicationController
+  before_action :look_inks_show, except: [:index]
   
   def index
     @inks = Ink.all
@@ -50,6 +51,13 @@ class User::InksController < ApplicationController
   
   def ink_params
     params.require(:ink).permit(:ink_name, :ink_image, :ink_introduction, :price, :milliliter, :evaluation, :color)
+  end
+  
+  def look_inks_show
+    unless user_signed_in?
+      flash[:notice] = "ログインしてください"
+      redirect_to action: :index
+    end
   end
   
 end
