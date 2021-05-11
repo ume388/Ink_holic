@@ -7,5 +7,14 @@
       自分の手持ちインクを記録したり、<br>
       新しいインクを見つけるために使ってみてください。
     </P>
+    
+    <ul>
+      <% @inks.each do |ink| %>
+        <li>
+          <%= attachment_image_tag ink, :ink_image, :fill, 100, 100, fallback: "no_image_jpg" %>
+          <%= ink.ink_name %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

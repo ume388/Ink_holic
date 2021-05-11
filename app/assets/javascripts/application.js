@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery.raty.js
+//= require bxslider
 //= require_tree .
 //= require moment
 //= require fullcalendar
