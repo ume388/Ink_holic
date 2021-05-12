@@ -10,59 +10,72 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "マイページ", user_path(:id), data: {"turbolinks"=>false} %>
-      </li>
-      <li>
-        <%= link_to "New Ink", new_ink_path %>
-      </li>
-      <li>
-        <%= link_to "カレンダー", events_path %>
-      </li>
-      <li>
-        <%= link_to "Inks", inks_path %>
-      </li>
-      <li>
-        <%= link_to "通報", new_report_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand">
+            <%= link_to image_tag("logo.jpg"), root_path %>
+          </a>
+          
+          <div>
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to "マイページ", user_path(:id), data: {"turbolinks"=>false} %>
+                </li>
+                <li>
+                  <%= link_to "New Ink", new_ink_path %>
+                </li>
+                <li>
+                  <%= link_to "カレンダー", events_path %>
+                </li>
+                <li>
+                  <%= link_to "Inks", inks_path %>
+                </li>
+                <li>
+                  <%= link_to "通報", new_report_path %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
     
-    <% elsif admin_signed_in? %>
-      <li>
-        <%= link_to"通報一覧", admins_reports_path %>
-      </li>
-      <li>
-        <%= link_to"インク一覧", admins_inks_path %>
-      </li>
-      <li>
-        <%= link_to"ユーザー一覧", admins_users_path %>
-      </li>
-      <li>
-        <%= link_to"ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
+              <% elsif admin_signed_in? %>
+                <li>
+                  <%= link_to"通報一覧", admins_reports_path %>
+                </li>
+                <li>
+                  <%= link_to"インク一覧", admins_inks_path %>
+                </li>
+                <li>
+                  <%= link_to"ユーザー一覧", admins_users_path %>
+                </li>
+                <li>
+                  <%= link_to"ログアウト", destroy_admin_session_path, method: :delete %>
+                </li>
 
-    <% else %>
-      <li>
-        <%= link_to "Ink_holicとは？", about_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "Inks", inks_path %>
-      </li>
-      <li>
-        <%= link_to "通報", new_report_path %>
-      </li>
-    <% end %>
-    
+              <% else %>
+                <li>
+                  <%= link_to "Ink_holicとは？", about_path %>
+                </li>
+                <li>
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+                <li>
+                  <%= link_to "Inks", inks_path %>
+                </li>
+                <li>
+                  <%= link_to "通報", new_report_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
