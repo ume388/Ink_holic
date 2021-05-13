@@ -1,20 +1,19 @@
-<div>
-  <div>
-    <h1>Ink_holicとは</h1>
-    <P>
-      万年筆用ボトルインク好きのための<br>
-      インク管理＆レビューサイトです。<br>
+<div class="container">
+  <div class="text-center">
+    <h1 class="about_ink">
+      Ink_holicとは
+    </h1>
+    
+    <P class="about_introduction">
+      万年筆用ボトルインク好きのための、インク管理＆レビューサイトです。<br>
       自分の手持ちインクを記録したり、<br>
       新しいインクを見つけるために使ってみてください。
     </P>
+  </div>  
     
-    <ul>
-      <% @inks.each do |ink| %>
-        <li>
-          <%= attachment_image_tag ink, :ink_image, :fill, 100, 100, fallback: "no_image_jpg" %>
-          <%= ink.ink_name %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="d-flex justify-content-around">
+    <% @inks.each do |ink| %>
+      <%= attachment_image_tag ink, :ink_image, :fill, 150, 150, fallback: "no_image_jpg" %>
+    <% end %>
   </div>
 </div>
