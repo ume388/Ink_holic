@@ -15,7 +15,7 @@ class User::InksController < ApplicationController
     @ink = Ink.new(ink_params)
     @ink.user_id = current_user.id
     @ink.save
-    redirect_to root_path
+    redirect_to ink_path(@ink)
   end
   
   def show
