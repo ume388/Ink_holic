@@ -17,8 +17,11 @@ class User::InksController < ApplicationController
   def create
     @ink = Ink.new(ink_params)
     @ink.user_id = current_user.id
-    @ink.save
-    redirect_to ink_path(@ink)
+    if @ink.save
+      redirect_to ink_path(@ink)
+    else
+      render 'new'
+    end
   end
   
   def show
