@@ -5,7 +5,7 @@
     <!--検索フォーム部分　ここから-->
     <%= search_form_for @q do |f| %>
       <%= f.label :ink_name %>
-      <%= f.search_field :ink_name_cont %>
+      <%= f.search_field :ink_name_cont, placeholder: "インク名で検索" %>
 
       <%= f.submit %>
     <% end %>
