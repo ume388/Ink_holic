@@ -8,12 +8,14 @@
       </p>
       
       <!--エラーメッセージ部分-->
-      <% if @report.errors.any? %>
-        <%= @report.errors.count %>件のエラーが発生しました。
-        <% @report.errors.full_messages.each do |message| %>
-          <%= message %>
+      <div class="error_message">
+        <% if @report.errors.any? %>
+          <%= @report.errors.count %>件のエラーが発生しました。
+          <% @report.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
       
       <%= form_with model: @report, local: true do |f| %>
         <h4>タイトル</h4>
