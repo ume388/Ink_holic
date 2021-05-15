@@ -1,12 +1,49 @@
-<div>
-  <div>
-    <h1>インク詳細</h1>
-
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="card w-50">
+      <h1>インク詳細</h1>
+      
+      <!--インク画像-->
       <%= attachment_image_tag @ink, :ink_image, :fill, 300, 300 %>
-      <p>
-        インク名:<%= @ink.ink_name %>
-      </p>
-      <p>評価</p>
+      
+      <div class="d-flex justify-content-between">
+        <h2>
+          インク名:<br>
+          <%= @ink.ink_name %>
+        </h2>
+        <p class="card_item">
+          色の分類:  <%= @ink.color %>
+        </p>
+      </div>
+      
+      <div>
+        <p class="card_item">
+          メモ・紹介:<br>
+          <%= @ink.ink_introduction %>
+        </p>
+      </div>
+      
+      <div class="d-flex justify-content-start">
+        <p class="card_item">
+          値段:  ￥<%= @ink.price %>
+        </p>
+        <p class="card_item">
+          内容量:  <%= @ink.milliliter %>ml
+        </p>
+      </div>
+      
+      <div class="d-flex justify-content-between">
+        <p class="card_item">
+          投稿者:  <%= @ink.user.user_name %>
+        </p>
+        <p class="card_item">
+          投稿日:  <%= @ink.created_at.strftime('%Y/%m/%d') %>
+        </p>
+      </div>
+      
+      <div>
+        <p class="card_item">評価</p>
+        <!--星の表示-->
         <div class="ink_evaluation" data-score="<%= @ink.evaluation %>"></div>
         <script>
           $('.ink_evaluation').raty({
@@ -17,39 +54,24 @@
             path: '/assets/'
           });
         </script>
-      <p>
-        色の分類:<%= @ink.color %>
-      </p>
-      <p>
-        メモ・紹介:<%= @ink.ink_introduction %>
-      </p>
-      <p>
-        値段:￥<%= @ink.price %>
-      </p>
-      <p>
-        内容量:<%= @ink.milliliter %>ml
-      </p>
-      <p>
-        1mlあたり:￥<%= (@ink.price / @ink.milliliter) %>／ml
-      </p>
-      <p>
-        ユーザー名:<%= @ink.user.user_name %>
-      </p>
-      <p>
-        日付:<%= @ink.created_at.strftime('%Y/%m/%d') %>
-      </p>
-    
-      <div id="favorite_buttons_<%= @ink.id %>">
-        <%= render partial: 'user/favorites/favorite', locals: {ink: @ink, favorite: @favorite} %>
+      </div>
+      
+      <div class="d-flex justify-content-end">
+        <div id="favorite_buttons_<%= @ink.id %>">
+          <%= render partial: 'user/favorites/favorite', locals: {ink: @ink, favorite: @favorite} %>
+        </div>
       </div>
     
-    <% if @ink.user_id == current_user.id %>
-      <p>
-        <%= link_to "編集", edit_ink_path(@ink) %>
-      </p>
-      <p>
-        <%= link_to "削除", ink_path(@ink), method: :delete, data: {confirm: '本当に削除しますか？'} %>
-      </p>
-    <% end %>
+      <div class="d-flex justify-content-end">
+        <% if @ink.user_id == current_user.id %>
+          <div>
+            <%= link_to "編集", edit_ink_path(@ink), class: "btn btn-outline-secondary" %>
+          </div>
+          <div>
+            <%= link_to "削除", ink_path(@ink), method: :delete, data: {confirm: '本当に削除しますか？'}, class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
