@@ -1,5 +1,6 @@
 class Admins::InksController < ApplicationController
-
+  before_action :authenticate_admin!
+  
   def index
     @inks = Ink.all
   end
