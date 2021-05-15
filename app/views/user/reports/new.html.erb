@@ -1,12 +1,12 @@
-<div>
-  <div>
-    <h1>通報フォーム</h1>
-    <p>
-      不適切投稿を発見した場合や、<br>
-      管理者への連絡にご利用ください。
-    </p>
-    
-    <div>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h1 class="report_item">通報フォーム</h1>
+      <p>
+        不適切投稿を発見した場合や、<br>
+        管理者への連絡にご利用ください。
+      </p>
+      
       <%= form_with model: @report, local: true do |f| %>
         <h4>タイトル</h4>
         <%= f.text_field :report_title %>
@@ -15,7 +15,7 @@
         <%= f.text_field :sentence %>
         
         <div>
-          <%= f.submit "登録" %>
+          <%= f.submit "送信", class: "btn btn-secondary" %>
         </div>
       <% end%>
     </div>
