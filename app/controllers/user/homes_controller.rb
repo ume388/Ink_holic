@@ -4,7 +4,7 @@ class User::HomesController < ApplicationController
   end
   
   def about
-    @inks = Ink.order("RANDOM()").limit(4)
+    @inks = Ink.all
   end
 
 end

@@ -12,8 +12,10 @@
   </div>  
     
   <div class="d-flex justify-content-around">
-    <% @inks.each do |ink| %>
-      <%= attachment_image_tag ink, :ink_image, :fill, 150, 150, fallback: "no_image_jpg" %>
-    <% end %>
+    <div class="bxslider">
+      <% @inks.each do |ink| %>
+        <%= attachment_image_tag ink, :ink_image, :fill, 150, 150, fallback: "no_image_jpg" %>
+      <% end %>
+    </div>
   </div>
 </div>
