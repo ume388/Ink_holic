@@ -1,39 +1,45 @@
-<div>
-  <div>
-    <h1><%= @user.user_name %>さんの詳細</h1>
-    
-    <div>
-      <%= attachment_image_tag @user, :user_image, :fill, 10, 10, fallback: "no_image.jpg" %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1><%= @user.user_name %>さんの詳細</h1>
+      <!--ユーザー画像の表示-->
+      <div class="d-flex justify-content-center">
+        <%= attachment_image_tag @user, :user_image, :fill, 10, 10, fallback: "no_image.jpg" %>
+      </div>
     </div>
     
-    <div>
-      <%= link_to "編集する", edit_admins_user_path(@user) %>
+    <div class="col-lg-6">
+      <!--ユーザー情報-->
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>ユーザー名</td>
+            <td><%= @user.user_name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td>ステータス</td>
+            <td>
+              <% if @user.is_deleted == false %>
+                有効
+              <% else %>
+                退会済み
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--編集ボタン-->
+      <div class="d-flex justify-content-end">
+        <%= link_to "編集する", edit_admins_user_path(@user), class: "btn btn-outline-secondary" %>
+      </div>
     </div>
     
-    <table>
-      <tbody>
-        <tr>
-          <td>ユーザー名</td>
-          <td><%= @user.user_name %></td>
-        </tr>
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= @user.email %></td>
-        </tr>
-        <tr>
-          <td>ステータス</td>
-          <td>
-            <% if @user.is_deleted == false %>
-              有効
-            <% else %>
-              退会済み
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <table>
+    <!--ユーザーが投稿したインク一覧-->
+    <table class="table">
       <thead>
         <tr>
           <th>インク画像</th>

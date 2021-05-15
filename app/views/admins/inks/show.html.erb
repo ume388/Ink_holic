@@ -1,44 +1,48 @@
-<div>
-  <div>
-    <h1><%= @ink.ink_name %>の詳細</h1>
-    <div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1 class="ink_box_item"><%= @ink.ink_name %>の詳細</h1>
+      
+      <!--インク画像-->
       <%= attachment_image_tag @ink, :ink_image, :fill, 300, 300 %>
-      <p>評価</p>
-        <div class="ink_evaluation" data-score="<%= @ink.evaluation %>"></div>
-        <script>
-          $('.ink_evaluation').raty({
-            readOnly: true,
-            score: function() {
-            return $(this).attr('data-score');
-            },
-            path: '/assets/'
-          });
-        </script>
-      <p>
-        色の分類:<%= @ink.color %>
-      </p>
-      <p>
-        メモ・紹介:<%= @ink.ink_introduction %>
-      </p>
-      <p>
-        値段:￥<%= @ink.price %>
-      </p>
-      <p>
-        内容量:<%= @ink.milliliter %>ml
-      </p>
-      <p>
-        1mlあたり:￥<%= (@ink.price / @ink.milliliter) %>／ml
-      </p>
-      <p>
-        ユーザー名:<%= @ink.user.user_name %>
-      </p>
-      <p>
-        日付:<%= @ink.created_at.strftime('%Y/%m/%d/%R') %>
-      </p>
+      
+      <h4 class="ink_box_item">評価</h4>
+      <!--星の表示-->
+      <div class="ink_evaluation" data-score="<%= @ink.evaluation %>"></div>
+      <script>
+        $('.ink_evaluation').raty({
+          readOnly: true,
+          score: function() {
+          return $(this).attr('data-score');
+          },
+          path: '/assets/'
+        });
+      </script>
     </div>
     
-    <div>
-      <%= link_to "編集する", edit_admins_ink_path(@ink) %>
+    <div class="col-lg-6">
+      <h4 class="ink_box_item">色の分類:</h4>
+      <%= @ink.color %>
+      
+      <h4 class="ink_box_item">メモ・紹介:</h4>
+      <%= @ink.ink_introduction %>
+      
+      <h4 class="ink_box_item">値段:</h4>
+      ￥<%= @ink.price %>
+      
+      <h4 class="ink_box_item">内容量:</h4>
+      <%= @ink.milliliter %>ml
+      
+      <h4 class="ink_box_item">ユーザー名:</h4>
+      <%= @ink.user.user_name %>
+        
+      <h4 class="ink_box_item">投稿日:</h4>
+      <%= @ink.created_at.strftime('%Y/%m/%d/%R') %>
+        
+      <!--編集ボタン-->
+      <div class="ink_box_item">
+        <%= link_to "削除する", edit_admins_ink_path(@ink), class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>

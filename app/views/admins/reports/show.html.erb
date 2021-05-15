@@ -1,30 +1,30 @@
-<div>
-  <div>
-    <h1>連絡内容詳細</h1>
-    
-    <div>
-      <h4>タイトル</h4>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h1 class="report_item">連絡内容詳細</h1>
+      
+      <h4 class="report_item">タイトル</h4>
       <%= @report.report_title %>
       
-      <h4>投稿日</h4>
-      <%= @report.created_at.strftime("%Y/%m/%d") %>
-      
-      <h4>投稿者</h4>
-      <%= @report.user.user_name %>
-      
-      <h4>内容</h4>
+      <h4 class="report_item">内容</h4>
       <%= @report.sentence %>
       
-      <h4>解決ステータス</h4>
+      <h4 class="report_item">投稿日</h4>
+      <%= @report.created_at.strftime("%Y/%m/%d") %>
+      
+      <h4 class="report_item">投稿者</h4>
+      <%= @report.user.user_name %>
+      
+      <h4 class="report_item">解決ステータス</h4>
       <% if @report.is_comfortable == false %>
         未解決
       <% else %>
         解決済み
       <% end %>
-    </div>
-    
-    <div>
-      <%= link_to "解決ステータスの編集", edit_admins_report_path(@report) %>
+      
+      <div class="report_item">
+        <%= link_to "解決ステータスの編集", edit_admins_report_path(@report), class: "btn btn-outline-secondary" %>
+      </div>
     </div>
   </div>
 </div>
