@@ -3,8 +3,11 @@ class User::InksController < ApplicationController
   
   def index
     @inks = Ink.all
+    @searched_inks = []
     @q = Ink.ransack(params[:q])
-    @searched_inks = @q.result(distinct: true)
+    if params[:q].present?
+      @searched_inks = @q.result(distinct: true)
+    end
   end
   
   def new
