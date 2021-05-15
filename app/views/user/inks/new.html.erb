@@ -4,5 +4,15 @@
     <div class="ink_form">
       <%= render 'user/inks/ink', ink: @ink %>
     </div>
+    
+    <!--エラーメッセージ部分-->
+    <div class="error_message">
+      <% if @ink.errors.any? %>
+        <%= @ink.errors.count %>件のエラーが発生しました。
+        <% @ink.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
