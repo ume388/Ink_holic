@@ -16,11 +16,13 @@
  */
 @import "bootstrap";
 
+//ヘッダー部分
 li {
     padding-left: 8px;
     padding-right: 8px;
 }
 
+//about画面
 .about_ink {
     padding: 20px;
 }
@@ -29,10 +31,12 @@ li {
     padding: 5px 5px 50px 5px;
 }
 
+//ログイン画面
 .link_sign_up {
     padding: 20px;
 }
 
+//インク投稿部分
 .ink_form {
     padding: 10px;
 }
@@ -41,10 +45,12 @@ li {
     padding-top: 10px;
 }
 
+//インク詳細画面
 .card_item {
     padding: 10px;
 }
 
+//マイページ
 .user_box {
     padding: 30px;
 }
@@ -54,10 +60,12 @@ li {
     padding-top: 40px;
 }
 
+//通報画面
 .report_item {
     padding-top: 20px;
 }
 
+//管理者インク管理画面
 .ink_box_item {
     padding-top: 15px;
 }
@@ -66,6 +74,7 @@ li {
     padding: 50px;
 }
 
+//管理者ユーザー管理
 .admin_edit_user_box {
     padding: 20px;
 }
