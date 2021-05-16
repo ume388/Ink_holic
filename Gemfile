@@ -76,7 +76,7 @@ gem 'ransack'
 #円グラフ描画用データの変換
 gem 'gon'
 
-#カレンダー
+#カレンダー（※今回は実装せず。今後挑戦予定）
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
@@ -86,7 +86,7 @@ gem 'bxslider-rails'
 #レイアウト
 gem 'bootstrap', '~> 4.5'
 
-#ページング
+#ページネーション
 gem 'kaminari','~> 1.2.1'
 
 #デバッグ

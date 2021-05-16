@@ -2,7 +2,7 @@ class Admins::InksController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @inks = Ink.all
+    @inks = Ink.page(params[:page]).reverse_order
   end
   
   def show
