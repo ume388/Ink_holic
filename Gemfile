@@ -86,7 +86,7 @@ gem 'bxslider-rails'
 #レイアウト
 gem 'bootstrap', '~> 4.5'
 
-#ページング
+#ページネーション
 gem 'kaminari','~> 1.2.1'
 
 #デバッグ
