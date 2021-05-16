@@ -2,7 +2,7 @@ class User::InksController < ApplicationController
   before_action :look_inks_show, except: [:index]
   
   def index
-    @inks = Ink.all
+    @inks = Ink.page(params[:page]).reverse_order
     @searched_inks = []
     @q = Ink.ransack(params[:q])
     if params[:q].present?
