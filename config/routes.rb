@@ -26,7 +26,6 @@ Rails.application.routes.draw do
     resources :users
     get 'unsubscribe' => 'users#unsubscribe'
     post 'withdraw' => 'users#withdraw'
-    resources :events
     resources :reports
   end
 
