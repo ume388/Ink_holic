@@ -87,3 +87,9 @@ li {
 .error_message {
     color: red;
 }
+
+@media screen and (max-width: 425px) {
+    .top_image img {
+        width: 100%;
+    }
+}
