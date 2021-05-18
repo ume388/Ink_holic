@@ -1,7 +1,6 @@
-<div>
-  <div>
-    <h1>ユーザー情報編集</h1>
-    
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <!--ユーザー情報編集-->
     <%= form_with model:@user, local:true do |f| %>
       <div>プロフィール画像</div>
       <%= f.attachment_field :user_image %>
@@ -13,12 +12,13 @@
       <%= f.text_field :email %>
       
       <div>
-        <%= f.submit "編集内容を保存" %>
+        <%= f.submit "編集内容を保存", class: "btn btn-outline-secondary" %>
       </div>
     <% end %>
-  </div>
-  
-  <div>
-    <%= link_to "退会する", unsubscribe_path %>
+    
+    <!--退会画面へのリンク-->
+    <div>
+      <%= link_to "退会する>>", unsubscribe_path %>
+    </div>
   </div>
 </div>
