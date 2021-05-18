@@ -7,7 +7,7 @@
           <%= @user.user_name %>
         </h4>
         <div>
-          <%= attachment_image_tag @user, :user_image, :fill, 10, 10, fallback: "no_image.jpg" %>
+          <%= attachment_image_tag @user, :user_image, :fill, 150, 150, fallback: "no_image.jpg" %>
         </div>
         <div>
           <%= link_to "編集する", edit_user_path(@user), class: "btn btn-outline-secondary" %>

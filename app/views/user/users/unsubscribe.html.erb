@@ -1,23 +1,18 @@
-<div>
-  <div>
-    <h1>退会確認画面</h1>
-    <p>
-      本当に退会しますか？<br>
-      退会すると、マイページ機能が使用できなくなります。<br>
-      （※退会しても、投稿したインクの情報は削除されません。<br>
-      投稿を消したい場合は、退会前に削除してください）。
-    </p>
-  </div>
-  
-  <div>
-    <%= form_with(model:@user, url: withdraw_path) do |f| %>
-      <%= f.label :退会ステータス %>
-      <%= f.radio_button :is_deleted, [["退会する", "true"]] %>
-      <%= f.submit "退会する" %>
-    <% end %>
-  </div>
-  
-  <div>
-    <%= link_to "退会しない", edit_user_path(:id) %>
+<!--退会確認画面-->
+<div class="container">
+  <div class="unsubscribe_box">
+    <div class="text-center">
+      <h3>本当に退会しますか？</h3>
+      <p>
+        ※退会しても、インク情報は削除されません。<br>
+        投稿を消したい場合は、<br>
+        退会前に削除してください。
+      </p>
+    </div>
+    
+    <div class="text-center">
+      <%= link_to "退会する", withdraw_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-dark" %>
+      <%= link_to "退会しない", edit_user_path(:id), class: "btn btn-outline-secondary" %>
+    </div>
   </div>
 </div>

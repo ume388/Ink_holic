@@ -4,7 +4,7 @@
       <h1><%= @user.user_name %>さんの詳細</h1>
       <!--ユーザー画像の表示-->
       <div class="d-flex justify-content-center">
-        <%= attachment_image_tag @user, :user_image, :fill, 10, 10, fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @user, :user_image, :fill, 150, 150, fallback: "no_image.jpg" %>
       </div>
     </div>
     
