@@ -39,11 +39,15 @@
 https://docs.google.com/spreadsheets/d/10HUB-SB9ymrv1aQ6ThgpJeJUJBa7C5RBBObggEC3R4s/edit#gid=0
 
 ## 開発環境
+- OS:  
+Amazon Linux 2
 - 言語:  
 HTML, CSS, JavaScript, Ruby(2.6.3)
 - フレームワーク：  
 Ruby on Rails(5.2.5)
 - JSライブラリ：  
 jQuery
+- IDE:
+Cloud9
 - 本番環境：  
 AWS(EC2, RDS)
