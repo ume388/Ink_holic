@@ -47,7 +47,7 @@ HTML, CSS, JavaScript, Ruby(2.6.3)
 Ruby on Rails(5.2.5)
 - JSライブラリ：  
 jQuery
-- IDE:
+- IDE:  
 Cloud9
 - 本番環境：  
 AWS(EC2, RDS)
